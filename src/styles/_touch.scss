@@ -1,0 +1,67 @@
+.touch {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .touch-row {
+        height: 33%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .touch-cell {
+        background-color: rgba( var(--button-color), 0.7);
+        height: 100%;
+        width: 33%;
+        display: flex;
+        &.tl {
+            align-items: flex-end;
+            justify-content: flex-end;
+            border-bottom: 1px solid var(--cell-color);
+        }
+        &.t {
+            align-items: flex-end;
+            justify-content: center;
+            border-right: 1px solid var(--cell-color);
+            border-left: 1px solid var(--cell-color);
+            border-bottom: 1px solid var(--cell-color);
+        }
+        &.tr {
+            align-items: flex-end;
+            justify-content: flex-start;
+            border-bottom: 1px solid var(--cell-color);
+        }
+        &.cl {
+            align-items: center;
+            justify-content: flex-end;
+        }
+        &.c {
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid var(--cell-color);
+            border-left: 1px solid var(--cell-color);
+        }
+        &.cr {
+            align-items: center;
+            justify-content: flex-start;
+        }
+        &.bl {
+            align-items: flex-start;
+            justify-content: flex-end;
+            border-top: 1px solid var(--cell-color);
+        }
+        &.b {
+            align-items: flex-start;
+            justify-content: center;
+            border-top: 1px solid var(--cell-color);
+            border-right: 1px solid var(--cell-color);
+            border-left: 1px solid var(--cell-color);
+        }
+        &.br {
+            align-items: flex-start;
+            justify-content: flex-start;
+            border-top: 1px solid var(--cell-color);
+        }
+    }
+}

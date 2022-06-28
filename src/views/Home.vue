@@ -1,4 +1,7 @@
 <script>
+
+
+
 export default {
   name: "Home",
   inject: ["$services"],
@@ -15,7 +18,9 @@ export default {
   mounted() {
     document.body.style.overflow = "auto";
   },
-  components: {},
+  components: {
+  
+  },
 };
 </script>
 
@@ -23,10 +28,14 @@ export default {
 @import "../styles/media";
 
 
+
+
 </style>
 
 <template>
   <div class="wrapper">
-      Home
+
+    Home
+
   </div>
 </template>

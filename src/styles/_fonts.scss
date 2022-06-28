@@ -55,15 +55,14 @@ p {
     line-height: 1.5em;
 }
 
-a:link,
-a:visited,
-a:hover,
-a:active {
-    text-decoration: underline;
-    color: var(--accent-rgb);
-    font-family: var(--font-hlb);
-}
-
+// a:link,
+// a:visited,
+// a:hover,
+// a:active {
+//     text-decoration: underline;
+//     color: var(--accent-rgb);
+//     font-family: var(--font-hlb);
+// }
 .colorAccent {
     color: var(--accent-rgb);
 }

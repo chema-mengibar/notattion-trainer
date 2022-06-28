@@ -118,17 +118,47 @@ export default class TrainerService {
 
 
         this._config = reactive({
-            clave: FA,
-            armadura: SOSTENIDO,
-            alt: 4
+            clave: SOL,
+            armadura: null,
+            alt: 1,
+            notes: 2
         })
+
+        this.notesExercise = []
     }
 
     get config() {
         return this._config
     }
 
+
+    set configClave(clave) {
+        console.log(clave)
+        this._config.clave = clave;
+    }
+
+    set configArmadura(armadura) {
+        this._config.armadura = armadura;
+    }
+
+    set configAlteraciones(alt) {
+        this._config.alt = alt;
+    }
+
+    set configMaxNotes(notes) {
+        this._config.notes = notes;
+    }
+
     reset() {
+
+        this.notesExercise = []
+
+        document.getElementById('solution').innerHTML = ''
+
+        const claves = [...document.getElementById('claves').childNodes];
+        claves.forEach(notaItem => {
+            notaItem.style.display = 'none';
+        })
 
         const teclas = [...document.getElementById('piano').childNodes];
         teclas.forEach(teclaItem => {
@@ -150,13 +180,33 @@ export default class TrainerService {
         return Math.floor(Math.random() * (max - min + 1) + min);
     };
 
+    solve() {
+
+        let solution = ''
+
+        this.notesExercise.forEach(note => {
+            solution += note + ' <br />'
+        })
+
+        document.getElementById('solution').innerHTML = solution
+    }
+
     build() {
         this.reset()
 
         const clave = this.config.clave
         const armadura = this.config.armadura
         const alt = this.config.alt
-        const notasAlteraciones = this.alteraciones[armadura][alt]
+
+        let notasAlteraciones = []
+        if (armadura !== null) {
+            notasAlteraciones = this.alteraciones[armadura][alt]
+
+            // 
+            for (let a = 1; a <= alt; a += 1) {
+                document.getElementById(`${armadura}-${clave}-${a}`).style.display = 'block';
+            }
+        }
 
         //
         const claveElement = document.getElementById(`clave-${clave}`)
@@ -164,13 +214,10 @@ export default class TrainerService {
             claveElement.style.display = 'block'
         }
 
-        // 
-        for (let a = 1; a <= alt; a += 1) {
-            document.getElementById(`${armadura}-${clave}-${a}`).style.display = 'block';
-        }
+
 
         //
-        const maxNotes = this.randomNumber(1, 2);
+        const maxNotes = this.config.notes //this.randomNumber(1, this.config.notes);
         const notes = []
 
         for (let m = 1; m <= maxNotes; m += 1) {
@@ -184,6 +231,8 @@ export default class TrainerService {
             const nota = this.notes[clave][notaIdx]
             let tecla = this.notesKeys[clave][notaIdx]
 
+            this.notesExercise.push(nota)
+
             document.getElementById(`nota-${notaIdx}`).style.display = 'block';
 
             if (notasAlteraciones.includes(nota)) {
@@ -194,7 +243,7 @@ export default class TrainerService {
                     tecla -= 1
                 }
             }
-            document.getElementById(`key-${tecla}`).style.fill = 'yellow';
+            document.getElementById(`key-${tecla}`).style.fill = 'orange';
 
             console.log(nota, tecla, notaIdx)
 

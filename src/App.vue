@@ -1,4 +1,7 @@
 <script>
+
+ import Navigation from './components/navigation.vue'
+
 export default {
   inject: ['$services'],
   data: ()=>( {
@@ -11,7 +14,7 @@ export default {
 
   },
   components: {
-
+ Navigation
   },
 }
 
@@ -24,7 +27,7 @@ export default {
 </style>
 
 <template>
-
+    <Navigation />
     <router-view />
 
 </template>

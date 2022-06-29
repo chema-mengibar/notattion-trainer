@@ -1,6 +1,7 @@
 <script>
 
 import Lesson from '../components/lesson.vue'
+import Zoom from '../components/zoom.vue'
 
 export default {
   name: "Trainer",
@@ -29,13 +30,32 @@ export default {
     this.build()
   },
   components: {
-    Lesson
+    Lesson,
+    Zoom
   },
 };
 </script>
 
 <style  lang="scss">
 @import "../styles/media";
+
+ .advice{
+    z-index:100;
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,.8);
+    color: white;
+    font-size:24px;
+    @media screen and (orientation:portrait) { 
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
+   }
 
 .trainer-board{
   display:flex;
@@ -48,17 +68,37 @@ export default {
   max-width:50px;
   flex:1;
   display:flex;
-  background-color: #777;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  
+  button{
+    height:30%;
+    width: 100%;
+    background-color: rgb(223, 223, 223);
+    border-radius: 8px;
+    box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.3);
+  }
 }
 
+.left{
+  button{
+    border-top-left-radius: 58px;
+    border-bottom-left-radius: 58px;
+  }
+}
+.right{
+  
+  button{
+    border-top-right-radius: 58px;
+    border-bottom-right-radius: 58px;
+  }
+}
 
 </style>
 
 <template>
   <div class="wrapper">
+    <Zoom />
     <div class="trainer-board">
       <div class="left">
         <button  @click="solve">Solve</button>
@@ -71,4 +111,5 @@ export default {
       </div>
     </div>
   </div>
+  <div class="advice">rotate your device</div>
 </template>

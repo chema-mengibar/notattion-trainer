@@ -10,6 +10,15 @@ export default class TrainerService {
     constructor() {
 
 
+        this.cifrado = {
+            'do': 'c',
+            're': 'd',
+            'mi': 'e',
+            'fa': 'f',
+            'sol': 'g',
+            'la': 'a',
+            'si': 'b',
+        }
 
         this.notes = {
             sol: {
@@ -116,12 +125,18 @@ export default class TrainerService {
             }
         }
 
+        this.size = {
+            w: 200,
+            h: 150,
+        }
+
 
         this._config = reactive({
             clave: SOL,
             armadura: null,
             alt: 1,
-            notes: 2
+            notes: 2,
+            cifrado: false
         })
 
         this.notesExercise = []
@@ -132,8 +147,11 @@ export default class TrainerService {
     }
 
 
+    set configCifrado(cifrado) {
+        this._config.cifrado = cifrado;
+    }
+
     set configClave(clave) {
-        console.log(clave)
         this._config.clave = clave;
     }
 
@@ -150,16 +168,31 @@ export default class TrainerService {
     }
 
     reset() {
-
+        //
         this.notesExercise = []
 
+        //
+        const clavesStr = ['fa', 'sol']
+        const alteracionesStr = ['sostenido', 'bemol']
+
+        clavesStr.forEach(clave => {
+            alteracionesStr.forEach(armadura => {
+                for (let a = 1; a <= 4; a += 1) {
+                    document.getElementById(`${armadura}-${clave}-${a}`).style.display = 'none';
+                }
+            })
+        })
+
+        //
         document.getElementById('solution').innerHTML = ''
 
+        //
         const claves = [...document.getElementById('claves').childNodes];
         claves.forEach(notaItem => {
             notaItem.style.display = 'none';
         })
 
+        //
         const teclas = [...document.getElementById('piano').childNodes];
         teclas.forEach(teclaItem => {
             if (typeof teclaItem.getAttribute === 'function') {
@@ -168,6 +201,7 @@ export default class TrainerService {
             }
         })
 
+        //
         const notas = [...document.getElementById('notas').childNodes];
         notas.forEach(notaItem => {
             notaItem.style.display = 'none';
@@ -184,10 +218,23 @@ export default class TrainerService {
 
         let solution = ''
 
-        this.notesExercise.forEach(note => {
-            solution += note + ' <br />'
-        })
+        const solutions = this.notesExercise
 
+        solutions.forEach((note, idx) => {
+
+            if (this.config.cifrado) {
+
+                solution += this.cifrado[note]
+            } else {
+
+                solution += note
+            }
+
+            if (idx < solutions.length - 1) {
+                solution += ' ,   '
+            }
+
+        })
         document.getElementById('solution').innerHTML = solution
     }
 
@@ -235,6 +282,13 @@ export default class TrainerService {
 
             document.getElementById(`nota-${notaIdx}`).style.display = 'block';
 
+            const tforms = document.getElementById(`nota-${notaIdx}`).getAttribute('transform');
+            const parts = /translate\(([\-0-9]*)[, ]*([\-0-9]*)\)/.exec(tforms);
+            const firstX = parts[1];
+            const firstY = parts[2];
+
+            document.getElementById(`nota-${notaIdx}`).setAttribute('transform', `translate(${n * 20}, ${firstY})`);
+
             if (notasAlteraciones.includes(nota)) {
                 if (armadura === SOSTENIDO) {
                     tecla += 1
@@ -249,17 +303,21 @@ export default class TrainerService {
 
         }
 
+    }
 
+    scale(zoom) {
 
+        const partitura = document.getElementById(`partitura`)
+        const w = this.size.w
+        const h = this.size.h
 
-
-
-
-
-
-
-
-
+        if (zoom < 1) {
+            partitura.setAttribute('width', this.size.w)
+            partitura.setAttribute('height', this.size.h)
+        } else {
+            partitura.setAttribute('width', w * zoom)
+            partitura.setAttribute('height', h * zoom)
+        }
     }
 
 

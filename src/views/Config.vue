@@ -83,5 +83,11 @@ export default {
       <button :class="{ active: $services.trainerService.config.notes === 3}" @click="$services.trainerService.configMaxNotes = 3">3</button>
     </div>
 
+    <div class="tool">
+      <div class="tool-name">Cifrado:</div>
+      <button :class="{ active: $services.trainerService.config.cifrado === true}" @click="$services.trainerService.configCifrado = true">C</button>
+      <button :class="{ active: $services.trainerService.config.cifrado === false}" @click="$services.trainerService.configCifrado = false">DO</button>
+    </div>
+
   </div>
 </template>

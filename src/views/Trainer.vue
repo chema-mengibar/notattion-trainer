@@ -60,19 +60,19 @@ export default {
 .trainer-board{
   display:flex;
   flex-direction:row;
-
+  justify-content: space-between;
   flex:1;
 }
 
 .left, .right{
-  max-width:50px;
+  max-width:70px;
   flex:1;
   display:flex;
   align-items: center;
   justify-content: center;
   
   button{
-    height:30%;
+    height:70%;
     width: 100%;
     background-color: rgb(223, 223, 223);
     border-radius: 8px;
@@ -82,15 +82,15 @@ export default {
 
 .left{
   button{
-    border-top-left-radius: 58px;
-    border-bottom-left-radius: 58px;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
   }
 }
 .right{
   
   button{
-    border-top-right-radius: 58px;
-    border-bottom-right-radius: 58px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
   }
 }
 

@@ -43,6 +43,11 @@ export default {
   padding: 10px;
 }
 
+.nota-cite{
+  color: red;
+  font-size:12px;
+}
+
 </style>
 
 <template>
@@ -140,69 +145,88 @@ export default {
               </g>
             </g>
           </g>
+
+           
+
           <g id="notas" transform="translate(15, 0)">
             <g id="nota-1" transform="translate(0, 49)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
             <g id="nota-2" transform="translate(0, 44)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
             <g id="nota-3" transform="translate(0, 39)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
             <g id="nota-4" transform="translate(0, 34)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
             <g id="nota-5" transform="translate(0, 29)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
             <g id="nota-6" transform="translate(0, 24)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
             <g id="nota-7" transform="translate(0, 19)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
             <g id="nota-8" transform="translate(0, 14)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
             <g id="nota-9" transform="translate(0, 10)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
             <g id="nota-10" transform="translate(0, 4)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
             <g id="nota-11" transform="translate(0, 0)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
             <g id="nota-12" transform="translate(0, -5)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
             <g id="nota-13" transform="translate(0, -10)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
             <g id="nota-14" transform="translate(0, -15)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
             <g id="nota-15" transform="translate(0, -19)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
             <g id="nota-16" transform="translate(0, -24)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
             <g id="nota-17" transform="translate(0, -29)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
             <g id="nota-18" transform="translate(0, -34)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
             <g id="nota-19" transform="translate(0, -39)" style="display:none">
+              <text transform="translate(105, 55)" fill="red"  dominant-baseline="start" text-anchor="end"  class="nota-cite">@</text>
               <path   fill-rule="evenodd" clip-rule="evenodd" d="M84.2333 32.3667H83.0942V49.8914C81.9637 48.8333 80.1314 48.2916 78.1798 48.59C75.2016 49.0454 73.0734 51.2848 73.4262 53.5917C73.7789 55.8987 76.4792 57.3997 79.4573 56.9443C82.3586 56.5006 84.4533 54.3639 84.2333 52.1209V32.3667Z" fill="black"/>
             </g>
           </g>
     </svg>
-    <div id="solution" class="solution">
-      
-    </div>
   </div>
       
   <div class="piano">

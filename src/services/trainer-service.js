@@ -140,6 +140,7 @@ export default class TrainerService {
         })
 
         this.notesExercise = []
+        this.notesExerciseIdxs = []
     }
 
     get config() {
@@ -170,6 +171,13 @@ export default class TrainerService {
     reset() {
         //
         this.notesExercise = []
+        this.notesExerciseIdxs = []
+
+
+        const text = document.getElementsByTagName('text');
+        for (let n of text) {
+            n.textContent = '';
+        }
 
         //
         const clavesStr = ['fa', 'sol']
@@ -182,9 +190,6 @@ export default class TrainerService {
                 }
             })
         })
-
-        //
-        document.getElementById('solution').innerHTML = ''
 
         //
         const claves = [...document.getElementById('claves').childNodes];
@@ -215,27 +220,10 @@ export default class TrainerService {
     };
 
     solve() {
-
-        let solution = ''
-
-        const solutions = this.notesExercise
-
-        solutions.forEach((note, idx) => {
-
-            if (this.config.cifrado) {
-
-                solution += this.cifrado[note]
-            } else {
-
-                solution += note
-            }
-
-            if (idx < solutions.length - 1) {
-                solution += ' ,   '
-            }
-
-        })
-        document.getElementById('solution').innerHTML = solution
+        for (let n in this.notesExerciseIdxs) {
+            const text = document.getElementById(`nota-${this.notesExerciseIdxs[n]}`).getElementsByTagName('text');
+            text[0].textContent = this.notesExercise[n]
+        }
     }
 
     build() {
@@ -278,6 +266,7 @@ export default class TrainerService {
             const nota = this.notes[clave][notaIdx]
             let tecla = this.notesKeys[clave][notaIdx]
 
+            this.notesExerciseIdxs.push(notaIdx)
             this.notesExercise.push(nota)
 
             document.getElementById(`nota-${notaIdx}`).style.display = 'block';
@@ -298,8 +287,6 @@ export default class TrainerService {
                 }
             }
             document.getElementById(`key-${tecla}`).style.fill = 'orange';
-
-            console.log(nota, tecla, notaIdx)
 
         }
 

@@ -38,16 +38,13 @@ export default {
 
 .zoom{
   position:absolute;
-  bottom:0;
-  left:0;
+  top:0;
+  right:0;
   z-index:1;
-
-  width: 50px;
-  height: 100px;
-
-
+  width: 100px;
+  height: 50px;
   display:flex;
-  flex-direction:column;
+  flex-direction:row;
   justify-content: space-evenly;
   align-items:center;
   padding:0;

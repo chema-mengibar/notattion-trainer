@@ -15,3 +15,12 @@ body {
 * {
     box-sizing: border-box;
 }
+
+.note-column--matched [data-type='note-head'] {
+    fill: #148a3d;
+}
+
+.note-column--matched [data-type='note-stem'],
+.note-column--matched [data-type='note-ledger-line'] {
+    stroke: #148a3d;
+}

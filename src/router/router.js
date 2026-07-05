@@ -1,36 +1,33 @@
 import * as vueRouter from 'vue-router';
 
-const routes = [{
-        path: '/',
-        name: 'Home',
-        component: () => (
-            import ('../views/Home.vue'))
-    },
-    {
-        path: '/trainer',
-        name: 'Trainer',
-        component: () => (
-            import ('../views/Trainer.vue'))
-    },
-    {
-        path: '/config',
-        name: 'Config',
-        component: () => (
-            import ('../views/Config.vue'))
-    },
-
-
+const routes = [
+  {
+    path: '/',
+    redirect: { name: 'Trainer' },
+  },
+  {
+    path: '/trainer',
+    name: 'Trainer',
+    component: () => import('../views/Trainer.vue'),
+  },
+  {
+    path: '/settings',
+    name: 'Settings',
+    component: () => import('../views/Settings.vue'),
+  },
+  {
+    path: '/config',
+    redirect: { name: 'Settings' },
+  },
 ];
 
-const baseUrl = ''
-
 const router = vueRouter.createRouter({
-    history: vueRouter.createWebHistory(baseUrl),
-    routes
+  history: vueRouter.createWebHistory(''),
+  routes,
 });
 
 router.beforeEach(() => {
-    window.scrollTo(0, 0)
-})
+  window.scrollTo(0, 0);
+});
 
 export default router;

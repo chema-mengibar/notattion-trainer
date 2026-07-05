@@ -1,1 +1,1 @@
-# viz-demo
+# Notation trainer

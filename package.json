@@ -1,5 +1,5 @@
 {
-    "name": "quick-start-vue",
+    "name": "notation-trainer",
     "version": "0.0.0",
     "scripts": {
         "dev": "vite --host",

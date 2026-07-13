@@ -152,7 +152,6 @@ export default {
       role="application"
       aria-label="Piano keyboard"
     >
-      <rect data-type="keyboard-background" x="0" y="0" :width="viewBoxWidth" :height="viewBoxHeight" fill="#b6b6b6" />
 
       <g data-type="black-key-touch-layer">
         <g
@@ -234,7 +233,6 @@ export default {
   width: 100%;
   height: 50%;
   min-height: 0;
-  background: #b6b6b6;
   overflow: hidden;
   touch-action: none;
 }
@@ -276,7 +274,7 @@ export default {
 }
 
 .white-key.central {
-  fill: #ffca17;
+  fill: #ffe795;
 }
 
 .white-key.pressed {

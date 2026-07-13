@@ -29,7 +29,7 @@ const DEFAULT_SETTINGS = {
   randomNotesPerTime: false,
   keyboardRange: 'medium',
   tempoVelocity: 4,
-  tempoMode: 'seconds',
+  tempoMode: 'note',
 };
 
 const LEGACY_TEMPO_VELOCITIES = {

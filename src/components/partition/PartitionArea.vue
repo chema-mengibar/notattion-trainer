@@ -5,6 +5,7 @@ import PlayButton from './cta/PlayButton.vue';
 import TempoModeButton from './cta/TempoModeButton.vue';
 import VelocityButton from './cta/VelocityButton.vue';
 import NoteLabelsButton from './cta/NoteLabelsButton.vue';
+import FullScreenButton from './cta/FullScreenButton.vue';
 
 export default {
   name: 'PartitionArea',
@@ -16,6 +17,7 @@ export default {
     TempoModeButton,
     VelocityButton,
     NoteLabelsButton,
+    FullScreenButton,
   },
   computed: {
     trainer() {
@@ -36,6 +38,7 @@ export default {
     <div class="panel-left">
       <SettingsButton />
       <LoadTrainingButton />
+      <FullScreenButton />
     </div>
     <div class="panel-center">
       <div class="partitions-wrapper">
@@ -71,9 +74,6 @@ export default {
   align-items: center;
 }
 
-.panel-right {
-  gap: 26px;
-}
 
 .panel-spacer {
   flex: 1;

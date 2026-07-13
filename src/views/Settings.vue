@@ -153,9 +153,9 @@ export default {
 
 .save-button {
   font-size: 14px;
-  background: #2d6f77;
+  background: var(--button-color-rgb);
   color: #fff;
-  border-color: #2d6f77;
+  border-color: var(--button-color-rgb);
 }
 
 .settings-panel {
@@ -196,7 +196,7 @@ export default {
 }
 
 .segmented-control .active {
-  background: #2d6f77;
+  background: var(--button-color-rgb);
   color: #fff;
 }
 

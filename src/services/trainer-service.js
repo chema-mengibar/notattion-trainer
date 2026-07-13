@@ -15,6 +15,16 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 const STAFF_LINE_COUNT = 5;
 const NOTE_LINE_COUNT = 21;
 const LEDGER_LINE_IDXS = [0, 2, 4, 16, 18, 20];
+const NOTE_LEDGER_LINE_IDXS = {
+  0: [2, 4],
+  1: [2, 4],
+  2: [4],
+  3: [4],
+  17: [16],
+  18: [16],
+  19: [18, 16],
+  20: [16, 18],
+};
 
 export default class TrainerService {
   constructor(configService) {
@@ -170,15 +180,35 @@ export default class TrainerService {
     const count = settings.randomNotesPerTime
       ? this.randomNumber(1, settings.notesPerTime)
       : settings.notesPerTime;
-    const positions = new Set();
+    const positions = this.randomItems(this.visibleNotePositions(clef), count);
 
-    while (positions.size < count) {
-      positions.add(this.randomNumber(0, 14));
-    }
-
-    return Array.from(positions)
+    return positions
       .map((position) => this.createNote(clef, position))
       .filter(Boolean);
+  }
+
+  visibleNotePositions(clef) {
+    const gridKey = clef === 'sol' ? 'solGridIdx' : 'faGridIdx';
+    return Array.from(new Set(
+      this.visibleKeys()
+        .map((key) => key[gridKey])
+        .filter((gridIdx) => gridIdx !== null && gridIdx !== '')
+        .map(Number)
+    ));
+  }
+
+  randomItems(items, count) {
+    const candidates = [...items];
+    const selected = [];
+    const targetCount = Math.min(count, candidates.length);
+
+    while (selected.length < targetCount) {
+      const index = this.randomNumber(0, candidates.length - 1);
+      selected.push(candidates[index]);
+      candidates.splice(index, 1);
+    }
+
+    return selected;
   }
 
   createNote(clef, position) {
@@ -1072,17 +1102,21 @@ export default class TrainerService {
       'data-active': isActiveNote ? 'true' : 'false',
     });
 
-    if (LEDGER_LINE_IDXS.includes(Number(lineIdx))) {
+    this.ledgerLineIdxsForNote(lineIdx).forEach((ledgerLineIdx) => {
+      const ledgerPoint = row.notePoints[ledgerLineIdx];
+      if (!ledgerPoint) return;
+
       noteGroup.appendChild(this.create('line', {
         'data-type': 'note-ledger-line',
+        'data-line-idx': ledgerLineIdx,
         x1: cx - noteWidth * 1.1,
-        y1: cy,
+        y1: ledgerPoint.y,
         x2: cx + noteWidth * 1.1,
-        y2: cy,
+        y2: ledgerPoint.y,
         stroke: color,
         'stroke-width': 1,
       }));
-    }
+    });
 
     const note = this.create('ellipse', {
       'data-type': 'note-head',
@@ -1102,15 +1136,15 @@ export default class TrainerService {
     if (this.state.showNoteLabels && options.label) {
       const labelText = this.create('text', {
         'data-type': 'note-label',
-        x: cx,
-        y: cy + noteHeight * 1.35,
+        x: cx - 10,
+        y: cy - 5,
         fill: color,
-        'font-size': Math.max(6, row.lineGap * 0.75),
+        'font-size': 8,
         'text-anchor': 'middle',
         'dominant-baseline': 'middle',
         'pointer-events': 'none',
       });
-      labelText.textContent = options.label;
+      labelText.textContent = String(options.label).toUpperCase();
       noteGroup.appendChild(labelText);
     }
 
@@ -1127,6 +1161,15 @@ export default class TrainerService {
 
     parentGroup.appendChild(noteGroup);
     return noteGroup;
+  }
+
+  ledgerLineIdxsForNote(lineIdx) {
+    const noteLineIdx = Number(lineIdx);
+    const ownLedgerLineIdxs = LEDGER_LINE_IDXS.includes(noteLineIdx) ? [noteLineIdx] : [];
+    return [
+      ...ownLedgerLineIdxs,
+      ...(NOTE_LEDGER_LINE_IDXS[noteLineIdx] || []),
+    ];
   }
 
   renderNoteAccidental(noteGroup, row, cx, cy, noteWidth, accidental, color) {

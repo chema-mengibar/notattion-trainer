@@ -117,8 +117,8 @@ export default {
 }
 
 .modal-actions .primary {
-  background: #2d6f77;
+  background: var(--button-color-rgb);
   color: #fff;
-  border-color: #2d6f77;
+  border-color: var(--button-color-rgb);
 }
 </style>

@@ -1,5 +1,5 @@
 <IfModule mod_rewrite.c>
-  RewriteRule ^(start)($|/) - [L]
+  RewriteRule ^(notation)($|/) - [L]
   RewriteEngine On
   RewriteBase /
   RewriteRule ^index\.html$ - [L]
